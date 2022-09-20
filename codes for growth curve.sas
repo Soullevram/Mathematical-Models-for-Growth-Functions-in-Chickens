@@ -69,6 +69,7 @@ proc nlin plots=diagnostics(stats=all);
 run;
 
 ods graphics off;
+
 /*****line-break*****/
 
 data broiler_data;
@@ -106,6 +107,7 @@ proc nlin plots(stats=all)=(diagnostics(stats=(maxincurv maxpecurv)) fit);
 run;
 
 ods graphics off;
+
 /*****line-break******/
 
 data broiler_data;
@@ -143,7 +145,9 @@ proc nlin plots(stats=all)=(diagnostics(stats=(maxincurv maxpecurv)) fit);
 run;
 
 ods graphics off;
---------------------------------line-break-----------------------------------------
+
+/*****line-break******/
+
 data broiler_data;
 input Age ABW;
 datalines; 
@@ -172,6 +176,7 @@ proc gplot data=gompertz_laird uniform;
 run;
 
 /****optional*****/
+
 /************line-break**********/
 data broiler_data;
 input Age ABW;
@@ -208,10 +213,3 @@ proc nlin plots(stats=all)=(diagnostics(stats=(maxincurv maxpecurv)) fit);
 run;
 
 ods graphics off;
-
-	
-
-
-
-
-
