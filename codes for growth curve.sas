@@ -1,16 +1,16 @@
 data broiler_data;
 input Age ABW;
 datalines; 
-data available on request
+insert data here
 ;
 proc nlin data=broiler_data method=gauss;
 	parms a=70 b= 10 k = 0.7;
 	model ABW = a*exp(-b*exp(-k*Age));
-	output out=resgompertz p=pred r=resid parms a b k;
-	proc print data = resgompertz;
+	output out=gompertz p=pred r=resid parms a b k;
+	proc print data = gompertz;
 	run;
 
-proc corr data=resgompertz;
+proc corr data=gompertz;
 	var ABW pred;
 	run;
 
@@ -29,7 +29,7 @@ ods graphics off;
 	symbol1 i=none v=diamond c=black;
 	symbol2 i=join v=none c=orange;
 
-proc gplot;
+proc gplot data=gompertz uniform;
 	plot ABW*age=1 pred*age=2/overlay;
 run;
 
@@ -38,16 +38,16 @@ run;
 data broiler_data;
 input Age ABW;
 datalines; 
-data available on request
+insert data here
 ;
 proc nlin data=broiler_data method=gauss;
 	parms a=70 b= 10 k = 0.7;
 	model ABW=a/(1+b*exp(-k*Age));
-	output out=reslogistic p=pred r=resid parms a b k;
-	proc print data = reslogistic;
+	output out=logistic p=pred r=resid parms a b k;
+	proc print data = logistic;
 run;
 	
-proc corr data=reslogistic;
+proc corr data=logistic;
 	var ABW pred;
 	
 
@@ -57,7 +57,7 @@ proc corr data=reslogistic;
 	symbol1 i=none v=diamond c=black;
 	symbol2 i=join v=none c=orange;
 
-proc gplot data=reslogistic uniform;
+proc gplot data=logistic uniform;
 	plot ABW*age=1 pred*age=2/overlay;	
 run;
 
@@ -75,16 +75,16 @@ ods graphics off;
 data broiler_data;
 input Age ABW;
 datalines; 
-data available on request
+insert data here
 ;
 proc nlin data=broiler_data method=gauss;
 	parms a=70 b= 10 k = 0.7;
 	model ABW=a*(1-b*exp(-k*age))**3;
-	output out=resvonbert p=pred r=resid parms a b k;
-	proc print data = resvonbert;
+	output out=vonbert p=pred r=resid parms a b k;
+	proc print data = vonbert;
 run;
 	
-proc corr data=resvonbert;
+proc corr data=vonbert;
 	var ABW pred;
 run;
 	
@@ -95,7 +95,7 @@ run;
 	symbol1 i=none v=diamond c=black;
 	symbol2 i=join v=none c=orange;
 
-proc gplot data=resvonbert uniform;
+proc gplot data=vonbert uniform;
 	plot ABW*age=1 pred*age=2/overlay;	
 run;
 
@@ -113,7 +113,7 @@ ods graphics off;
 data broiler_data;
 input Age ABW;
 datalines; 
-data available on request
+insert data here
 ;
 proc nlin data=broiler_data method=gauss;
 	parms a=70 b= 10 k = 0.7;
@@ -151,7 +151,7 @@ ods graphics off;
 data broiler_data;
 input Age ABW;
 datalines; 
-data available on request
+insert data here
 ;
 proc nlin data=broiler_data method=gauss;
 	parms a=1497.30 b= 14.31 k = 0.13 d=0.50;
@@ -181,16 +181,16 @@ run;
 data broiler_data;
 input Age ABW;
 datalines; 
-data available on request
+insert data here
 ;
 proc nlin data=broiler_data method=gauss;
 	parms a=2000 b= -3 k = 0.14;
 	model ABW = a/(1+exp(-b-k*Age));
-	output out=WLS p=pred r=resid parms a b k;
-	proc print data = WLS;
+	output out=weighted_least_square p=pred r=resid parms a b k;
+	proc print data = weighted_least_square;
 run;
 
-proc corr data=WLS;
+proc corr data=weighted_least_square;
 	var ABW pred;
 run;
 	
@@ -201,7 +201,7 @@ run;
 	symbol1 i=none v=diamond c=black;
 	symbol2 i=join v=none c=orange;
 
-proc gplot data=gompertz_laird uniform;
+proc gplot data=weighted_least_square uniform;
 	plot ABW*age=1 pred*age=2/overlay;	
 run;
 
