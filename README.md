@@ -6,4 +6,4 @@ The SAS codes are for the three-parameter mathematical growth models (namely, Go
 <li> Cosamede H. Osaiyuwu (<a href="mailto:oh.osaiyuwu@mail.ui.edu.ng">oh.osaiyuwu@mail.ui.edu.ng</a></span>)
 
 # Data availability
-The data used for the analysis is available on requst. Request should be sent to oh.osaiyuwu@mail.ui.edu.ng.
+The data used for the analysis is available on request. Request should be sent to oh.osaiyuwu@mail.ui.edu.ng.
